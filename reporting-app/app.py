@@ -4,13 +4,15 @@ from upload import upload_report
 
 app = Flask(__name__)
 
-@app.route("/report", methods=["GET"])
+@app.route("/report", methods=["POST"])
 def generate_report():
-    start_date = request.args.get("start")
-    end_date = request.args.get("end")
+    data = request.get_json()
 
-    if not start_date or not end_date:
-        return jsonify({"error": "start and end query params are required (YYYY-MM-DD)"}), 400
+    if not data or "start" not in data or "end" not in data:
+        return jsonify({"error": "JSON body must include 'start' and 'end' (YYYY-MM-DD)"}), 400
+
+    start_date = data["start"]
+    end_date = data["end"]
 
     text = build_report_text(start_date, end_date)
     filename = f"report_{start_date}_to_{end_date}.txt"
