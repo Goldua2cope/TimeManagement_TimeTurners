@@ -1,0 +1,6 @@
+psycopg2-binary
+azure-storage-blob
+python-dotenv
+flask
+azure-identity
+azure-keyvault-secrets
