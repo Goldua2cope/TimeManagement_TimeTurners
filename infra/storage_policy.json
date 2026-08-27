@@ -1,0 +1,18 @@
+{
+  "rules": [
+    {
+      "name": "delete-after-7-days",
+      "enabled": true,
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+            "blobTypes" : ["blockBlob"]
+        },
+        "actions": {
+            "baseBlob": {
+                "delete": { "daysAfterCreationGreaterThan": 7 }
+            }}
+        }
+    }
+  ]
+}
