@@ -18,8 +18,7 @@ def get_storage_connection_string():
             return conn_str
     except Exception as e:
         print(f"Could not reach Key Vault ({e}), falling back to .env")
-
-    return os.getenv("AZURE_STORAGE_CONNECTION_STRING")
+        return 
 
 def upload_report(local_file_path, blob_name, container_name="time-management-container"):
     connection_string = get_storage_connection_string()
