@@ -22,8 +22,8 @@ A Python-based time management system for recording consultant working hours, st
 
 The project consists of two applications:
 
-- REST API — accepts consultant working hours through HTTP requests and stores them in PostgreSQL.
-- Reporting Application — reads time entries from PostgreSQL, generates a text report, and uploads the report to Azure Blob Storage.
+- **REST API** — accepts consultant working hours through HTTP requests and stores them in PostgreSQL.
+- **Reporting Application** — reads time entries from PostgreSQL, generates a text report, and uploads the report to Azure Blob Storage.
 
 Both applications run locally. The PostgreSQL database and Azure Blob Storage are hosted in Azure.
 
@@ -125,7 +125,7 @@ infra/
 └── azure_setup.sh
 ```
 
-Configure the required variables in infra/.env.
+Configure the required variables in infra/.env and storage_policy.json as needed.
 Note: Sensitive configuration should be stored in Azure Key Vault.
 
 ### 3. Provision Azure infrastructure
